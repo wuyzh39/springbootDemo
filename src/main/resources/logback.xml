@@ -19,6 +19,9 @@
     <!-- 仅收集ERROR级别日志的文件appender -->
     <appender name="ERROR-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>log/error.log</file>
+        <filter class="com.wyz.springbootdemo.logUtils.logFilter.ErrorToWarnFilter">
+            <targetClass>JavaOriginLogger</targetClass>
+        </filter>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>

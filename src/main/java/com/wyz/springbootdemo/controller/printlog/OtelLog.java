@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-//@Slf4j
+@Slf4j
 public class OtelLog {
 
     @GetMapping("otel-error")
@@ -20,7 +20,7 @@ public class OtelLog {
             Level.SEVERE,
             "severe log by otel logger"
         );
-//        log.error("error log by slf4j");
+        log.error("error log by slf4j");
         return "otel error";
     }
 }

@@ -9,21 +9,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ErrorToWarnFilter extends AbstractMatcherFilter<ILoggingEvent> {
-    private Set<String> targetClassNameList = new HashSet<>();
+    private Set<String> exclusiveClassNameList = new HashSet<>();
 
-    public void addTargetClassName(String className) {
-        targetClassNameList.add(className.trim());
+    public void addExclusiveClass(String className) {
+        exclusiveClassNameList.add(className.trim());
     }
-
 
     @Override
     public FilterReply decide(ILoggingEvent event) {
-//        if (targetClassNameList.contains(event.getLoggerName())) {
+//        if (exclusiveClassNameList.contains(event.getLoggerName())) {
 //
 //        }
         System.out.println("[ErrorToWarnFilter] " + event.getLoggerName());
-        return FilterReply.NEUTRAL;
+        return onMatch;
     }
-
 
 }
